@@ -6,7 +6,8 @@ export default function Login() {
       <View style={styles.container}>
         <Text style={styles.txt}> A MAIOR TORCIDA DO BRASIL! </Text>
   
-        <Image style={styles.img} source={{uri:"https://pbs.twimg.com/media/Ec1ZfleXYAAcYFJ.jpg" }}>
+        <Image style={styles.img} source={require("./assets/logo.png")}> 
+        {/*uri removido pq queria a mesma imagem sem fundo */}
         </Image>
   
   
@@ -15,19 +16,16 @@ export default function Login() {
    */}
   
   
-        <TextInput style={styles.brinputxt} placeholder= 'Usuário ' maxLength={6}>
+        <TextInput style={styles.brinputxt} placeholder= 'Usuário ' maxLength={10}>
         </TextInput>
-        <TextInput style={styles.brinputxt} placeholder= 'Senha ' maxLength={6}>
+        <TextInput style={styles.brinputxt} placeholder= 'Senha ' maxLength={12}>
         </TextInput>
   
   
         <TouchableOpacity style={styles.brtt}>
           <Text style={styles.brtxt}>SEJA SÓCIO!</Text>
         </TouchableOpacity>
-  
-  
-        <StatusBar style="auto" />
-      </View>
+       </View>
     );
   }
   
@@ -56,17 +54,17 @@ export default function Login() {
     },
   
     brtt:{
-      paddingHorizontal: 5,
+      paddingVertical: 5,
       backgroundColor: '#424243',
       borderRadius:  10,
-      paddingHorizontal: 10,
+      paddingHorizontal: 20,
     },
   
     brtxt:{
-      color:'white',
       fontSize: 27,
       fontFamily: 'sans-serif',
       fontWeight: 'bold',
+      color: '#FFFF',
     },
   
     brinputxt:{
@@ -77,5 +75,6 @@ export default function Login() {
       borderColor: '#493e3e',
       marginBottom: '5%',
       fontSize: 25,
+      width: 200,
     },
   });

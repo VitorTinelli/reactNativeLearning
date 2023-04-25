@@ -1,7 +1,22 @@
 import { StatusBar } from 'expo-status-bar';
+import { useState } from 'react';
 import { StyleSheet, Text, View, Image, Button, TouchableOpacity, TextInput } from 'react-native';
+import Hooks from './Hooks';
 
-export default function Login() {
+export default function Login({navigation}) {
+    const [user, setUser] = useState("")
+    const [senha, setSenha] = useState(0)
+    const [result, setResult] = useState("")
+
+    function Verify(){
+      if ((user == "Omega")&&(senha == 123)){
+        setResult("")
+        navigation.navigate('Hooks')
+      } else{
+        setResult("Usuário ou senha incorretos!")
+      }
+    }
+
     return (
       <View style={styles.container}>
         <Text style={styles.txt}> A MAIOR TORCIDA DO BRASIL! </Text>
@@ -16,15 +31,19 @@ export default function Login() {
    */}
   
   
-        <TextInput style={styles.brinputxt} placeholder= 'Usuário ' maxLength={10}>
+        <TextInput style={styles.brinputxt} placeholder= 'Usuário ' maxLength={10} onChangeText={setUser} textAlign={'center'}>
         </TextInput>
-        <TextInput style={styles.brinputxt} placeholder= 'Senha ' maxLength={12}>
+        <TextInput style={styles.brinputxt} placeholder= 'Senha ' maxLength={12} onChangeText={setSenha} textAlign={'center'}>
         </TextInput>
+    
   
   
-        <TouchableOpacity style={styles.brtt}>
-          <Text style={styles.brtxt}>SEJA SÓCIO!</Text>
+        <TouchableOpacity style={styles.brtt} onPress={Verify}>
+          <Text style={styles.brtxt}>ENTRAR</Text>
         </TouchableOpacity>
+        <Text>
+          {result}
+        </Text>
        </View>
     );
   }
@@ -56,8 +75,11 @@ export default function Login() {
     brtt:{
       paddingVertical: 5,
       backgroundColor: '#424243',
-      borderRadius:  10,
+      borderRadius:  15,
       paddingHorizontal: 20,
+      width: '50%',
+      alignItems: 'center',
+      justifyContent: 'center',
     },
   
     brtxt:{
@@ -75,6 +97,6 @@ export default function Login() {
       borderColor: '#493e3e',
       marginBottom: '5%',
       fontSize: 25,
-      width: 200,
+      width: '50%',
     },
   });

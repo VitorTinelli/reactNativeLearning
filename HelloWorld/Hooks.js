@@ -2,7 +2,7 @@ import { StyleSheet, Text, SafeAreaView, TouchableOpacity, View, TextInput} from
 import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 
-export default function Hooks(){
+export default function Hooks({navigation}){
     const [name, setName] = useState("Vitor Tinelli");
     const [count, setCount] = useState(0) 
     const [count2, setCount2] = useState(0) 
@@ -50,7 +50,7 @@ export default function Hooks(){
         </TouchableOpacity> */}
 
         <View style={styles.buttons}>
-        <TouchableOpacity style={styles.brtt} onPress={Somar1}>
+        <TouchableOpacity style={styles.brtt} onPress ={Somar1}>
           <Text style={styles.brtxt}>+</Text>
         </TouchableOpacity>
         <TouchableOpacity style={styles.brtt} onPress={Decrementar1}>

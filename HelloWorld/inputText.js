@@ -2,20 +2,32 @@ import { StyleSheet, Text, SafeAreaView, TouchableOpacity, View, TextInput} from
 import { useState } from 'react';
 import { StatusBar } from 'expo-status-bar';
 
-export default function InputText(){
+export default function InputText({navigation}){
     const [name, setName] = useState("Vitor Tinelli");
+    const [count, setCount] = useState(0);
+    const [num1, setNum1] = useState("");
+    const [num2, setNum2] = useState("");
+    const [soma, SetSoma] = useState(0);
     function Alterar(){
-        setName("Pobre!")
+        setName("Pobre!");
     }
+    function Somar(){
+        SetSoma(Number(num1) + Number(num2));
+    }
+
     return(
         <SafeAreaView style={styles.container}>
 
-            <Text style={styles.txt}>Seja bem-vindo, {name}</Text>
+            <Text style={styles.txt}>Calculo: {soma}</Text>
 
-            <TextInput placeholder = 'Nome' style={styles.brinputxt} value={name} onChangeText={setName}/>
-            <TouchableOpacity style={styles.brtt} onPress={Alterar}>
-            <Text style={styles.brtxt}> ALTERAR </Text>
+            <TextInput placeholder = 'Num1' style={styles.brinputxt} value={num1} onChangeText={setNum1}/>
+            <TextInput placeholder = 'Num2' style={styles.brinputxt} value={num2} onChangeText={setNum2}/>
+
+            <TouchableOpacity style={styles.brtt} onPress={Somar}>
+                <Text style={styles.brtxt}> + </Text>
             </TouchableOpacity>
+            <Text>{num1}</Text>
+            <Text>{num2}</Text>
                 
             
         </SafeAreaView>
@@ -57,7 +69,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         marginHorizontal: '2%',
-        marginTop: '5%',
+        marginTop: '10%',
     },
     
     brtxt:{

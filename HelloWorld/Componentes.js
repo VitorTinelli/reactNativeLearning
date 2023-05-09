@@ -2,6 +2,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { StyleSheet, Text, View, Image, Button, TouchableOpacity, TextInput } from 'react-native';
 import Hooks from './Hooks';
+import { Entypo } from '@expo/vector-icons';
 
 export default function Login({navigation}) {
     const [user, setUser] = useState("")
@@ -36,14 +37,13 @@ export default function Login({navigation}) {
         <TextInput style={styles.brinputxt} placeholder= 'Senha ' maxLength={12} onChangeText={setSenha} textAlign={'center'}>
         </TextInput>
     
-  
-  
         <TouchableOpacity style={styles.brtt} onPress={Verify}>
           <Text style={styles.brtxt}>ENTRAR</Text>
         </TouchableOpacity>
         <Text>
           {result}
         </Text>
+        <Entypo name="home" size={30} color="black" />
        </View>
     );
   }

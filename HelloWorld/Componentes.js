@@ -4,6 +4,7 @@ import { StyleSheet, Text, View, Image, Button, TouchableOpacity, TextInput } fr
 import Hooks from './Hooks';
 import { Entypo } from '@expo/vector-icons';
 
+
 export default function Login({navigation}) {
     const [user, setUser] = useState("")
     const [senha, setSenha] = useState(0)
